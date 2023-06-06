@@ -8,6 +8,9 @@ class Solution{
                 low++;
 
             }
+
+
+            
             else if(arr[mid]== 1){
                 swap(arr[mid] ,arr[low]);
                 mid++;
