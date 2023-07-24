@@ -31,10 +31,59 @@ class Solution {
      for(int i =0 ; i<nums.length-1 ; i++){
          if(nums[i] <nums[i+1]){
              nums[ans] = nums[i+1]; 
-             ans++;
-             
+             ans++;         
          }
      }
      return ans;
     }
 }
+
+
+
+******FIND N/3 TIMES OF NUMS***********leetcode
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+
+       ArrayList<Integer> result = new ArrayList<>();
+       HashMap<Integer , Integer> countmap = new HashMap<>();
+       if(nums == null || nums.length ==0){
+
+           return result;
+       }
+        for(int num: nums){
+            countmap.put(num , countmap.getOrDefault(num ,0)+1);
+        }
+
+        for(Map.Entry<Integer , Integer> entry : countmap.entrySet()){
+            if(entry.getValue() > nums.length/3){
+                result.add(entry.getKey());
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args){
+        Solution solution = new Solution();
+        int[] nums = {2,3,2,3,3};
+       List <Integer>majorityElement = solution.majorityElement(nums);
+       System.out.print("Elements appear more than n/3 times are" + majorityElement);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
